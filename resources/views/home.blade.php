@@ -4,3 +4,7 @@
 @parent
 Sidebar 2 
 @endsection
+
+@section('maincontent')
+ 
+@endesection;
