@@ -18,16 +18,23 @@ Route::get('/', function () {
 });
 
 
+// Route::get('admin', function(){
+//     return view('dashboard');
+// });
+
+
 Route::get('frontside', 'FrontendController@index');
 Route::get('frontside/contact', 'FrontendController@contact');
-Route::get('user', 'UserController@index')->name('user');
+// Route::get('user', 'UserController@index')->name('user');
+Route::get('login', 'UserController@index')->name('loginform');
 Route::POST('saveConsultation', 'UserController@saveConsultation') ->name('saveConsultation');
+Route::POST('saveuserinfo', 'UserController@saveuserinfo') ->name('saveuserinfo');
+Route::get('registration', 'UserController@registration')->name("registration");
+Route::POST('register', 'UserController@register')->name("register");
+Route::get('admin', 'DashboardController@index')->name('admin');
+Route::get('logout', 'UserController@logout')->name('logout');
 // Route::get('saveConsultation', 'UserController@saveConsultation') ->name('saveConsultation');
 
 
 //Route::get('user/{id}', 'UserController@show')->where('id', '[0-9]+');
 Route::get('user/{name}', 'UserController@display')->where('name', '[a-z]+');
-
-Route::get('admin', function(){
-    return view('dashboard');
-});

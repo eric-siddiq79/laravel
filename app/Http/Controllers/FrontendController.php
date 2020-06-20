@@ -10,9 +10,9 @@
             'cell' => '01775099773',
         ];
         
-            //return View('welcome',compact('info'));
+            return View('welcome',compact('info'));
             //return redirect()->action('FrontendController@contact');
-            return redirect() -> route('user');
+            //return redirect() -> route('user');
         }
 
         public function contact(){
