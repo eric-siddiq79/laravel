@@ -1625,7 +1625,6 @@ PANELS CONFIGURATIONS
 /* Grid Showcase*/
 
 	margin-bottom: 15px;
-}
 
 .show-grid [class^=col-] {
 	padding-top: 10px;
@@ -3483,4 +3482,10 @@ ul.chat-available-user li a:hover {
 
 #copyrights a {
   color: #fff;
+}
+
+
+#main-content{
+    min-height: calc(100vh - 71px);
+    min-height: -webkit-calc(100vh - 71px);
 }

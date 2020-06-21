@@ -35,6 +35,15 @@ Route::get('admin', 'DashboardController@index')->name('admin');
 Route::get('logout', 'UserController@logout')->name('logout');
 // Route::get('saveConsultation', 'UserController@saveConsultation') ->name('saveConsultation');
 
+Route::get('role', 'UserController@role')->name('role');
+Route::get('allrole', 'UserController@allrole')->name('allrole');
+
+
+Route::get('productform', 'CategoryController@index')->name('productform');
+Route::get('products', 'CategoryController@allproducts')->name('products');
+Route::get('categoryform', 'CategoryController@category')->name('categoryform');
+Route::get('categories', 'CategoryController@allcategory')->name('categories');
+
 
 //Route::get('user/{id}', 'UserController@show')->where('id', '[0-9]+');
 Route::get('user/{name}', 'UserController@display')->where('name', '[a-z]+');

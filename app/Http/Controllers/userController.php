@@ -28,6 +28,24 @@
             return redirect()->action('UserController@index'); 
         }
 
+        public function role() {
+            if( Session::has( 'username' ) ){
+                return view('role');
+            }else{
+                session::flash('message', 'Please Enter Login First' );
+                return redirect()-> route('loginform');
+            }
+        }
+
+        public function allrole() {
+            if( Session::has( 'username' ) ){
+                return view('allrole');
+            }else{
+                session::flash('message', 'Please Enter Login First' );
+                return redirect()-> route('loginform');
+            }
+        }
+
         // public function saveConsultation( Request $request ){
         //     echo $request -> input('name');
         //     echo $request -> input('email');
