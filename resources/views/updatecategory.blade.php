@@ -13,15 +13,15 @@
                 {{Session::get('message')}} 
             @endif 
          </h2>
-        <form class="form" role="form" action="{{ route( 'savecategory' ) }}" method="POST">
+        <form class="form" role="form" action="{{ route( 'updatecategorydata' ) }}" method="POST">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <div class="form-group">
                 <label class="sr-only" for="exampleInputEmail2"></label>
-                <input type="text" name="catename" class="form-control" id="exampleInputEmail2" placeholder="Enter Category Name">
+                <input type="text" name="catename" class="form-control" id="exampleInputEmail2" placeholder="Enter Category Name" value="{{ $category[0]->name}}">
             </div>
             <div class="form-group">
                 <label class="sr-only" for="exampleInputPassword2">Password</label>
-                <input type="text" name="catecode" class="form-control" id="exampleInputPassword2" placeholder="Category Code Number">
+                <input type="text" name="catecode" class="form-control" id="exampleInputPassword2" placeholder="Category Code Number" value="{{ $category[0]->code}}">
             </div>
             <button type="submit" class="btn btn-theme">Save</button>
         </form>

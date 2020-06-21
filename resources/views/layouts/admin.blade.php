@@ -14,7 +14,7 @@
     <link href="{{asset( '/img/apple-touch-icon.png' )}}" rel="apple-touch-icon">
 
     <!-- Bootstrap core CSS -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset( '/lib/bootstrap/css/bootstrap.min.css' ) }}" rel="stylesheet">
     <!--external css-->
     <link href="{{asset( '/lib/font-awesome/css/font-awesome.css' )}}" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="{{asset( '/css/zabuto_calendar.css' )}}">
@@ -253,7 +253,7 @@
                         </a>
                         <ul class="sub">
                             <li><a href="{{ route( 'role' ) }}">Create User</a></li>
-                            <li><a href="{{ route( 'role' ) }}">All users</a></li>
+                            <li><a href="{{ route( 'allrole' ) }}">All users</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -299,7 +299,7 @@
         <!--main content start-->
         <section id="main-content">
             <div class="wrapper">
-                @yield('maincontent');
+                @yield('maincontent')
             </div>
         </section>
         <!--main content end-->

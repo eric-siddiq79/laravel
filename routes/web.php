@@ -41,8 +41,14 @@ Route::get('allrole', 'UserController@allrole')->name('allrole');
 
 Route::get('productform', 'CategoryController@index')->name('productform');
 Route::get('products', 'CategoryController@allproducts')->name('products');
+
 Route::get('categoryform', 'CategoryController@category')->name('categoryform');
-Route::get('categories', 'CategoryController@allcategory')->name('categories');
+Route::POST('savecategory', 'CategoryController@savecategory') -> name('savecategory');
+Route::get('categories', 'CategoryController@categories')->name('categories');
+Route::get('updatecategory/{id}', 'CategoryController@updatecategory')->name('updatecategory');
+Route::get('deletecategory/{id}', 'CategoryController@deletecategory')->name('deletecategory');
+
+Route::POST('updatecategorydata', 'CategoryController@updatecategorydata')->name('updatecategorydata');
 
 
 //Route::get('user/{id}', 'UserController@show')->where('id', '[0-9]+');
