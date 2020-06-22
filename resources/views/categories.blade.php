@@ -10,9 +10,9 @@
             <div class="container-fluid">
                 <div class="row row-fluid">
 					<h2 class="form-login-heading">
-						@if( Session::has('message')) 
-							{{Session::get('message')}} 
-						@endif 
+						@if( Session::has('message'))
+							{{Session::get('message')}}
+						@endif
 					</h2>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
-                    <?php 
+                    <?php
 						$sl = 0;
 						foreach ( $categories as $category ){
 							$sl++;

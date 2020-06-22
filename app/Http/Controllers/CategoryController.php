@@ -1,20 +1,13 @@
-<?php 
+<?php
     namespace App\Http\Controllers;
     use Illuminate\Http\Request;
     use Illuminate\Support\Facades\Session;
     use Illuminate\Support\Facades\DB;
 
 Class CategoryController{
-    public function index(){
-        return view('product');
-    }
 
     public function category(){
         return view("category");
-    }
-
-    public function allproducts(){
-        return view('product');
     }
 
     public function categories(){
@@ -37,6 +30,7 @@ Class CategoryController{
         $name = $request-> input('catename');
         $code = $request->input('catecode');
         DB::update('update categories set name = ?, code = ?', [ $name, $code ]);
+        Session::flash('message', 'Successfully Updated Category');
         return redirect()->action('CategoryController@categories') ;
     }
 

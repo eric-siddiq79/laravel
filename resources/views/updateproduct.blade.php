@@ -21,9 +21,8 @@
 
                 @endif
                 <div class=" form">
-                    <form action="{{ route('saveproduct') }}" method="post" class="cmxform form-horizontal style-form" id="commentForm" enctype="multipart/form-data">
+                    <form action="{{ route('updateproductdata') }}" method="post" class="cmxform form-horizontal style-form" id="commentForm" enctype="multipart/form-data">
                         @csrf
-
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-2">Select Category</label>
 
@@ -35,49 +34,46 @@
                                     @endforeach
                                 </select>
                             </div>
-
                         </div>
-
-
-
+                        <input type="hidden" name="product_id" value="{{ $product[0]->id }}">
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">Product Name/title (required)</label>
                             <div class="col-lg-10">
-                                <input class=" form-control" id="cname" name="title" minlength="2" type="text" required="">
+                                <input class=" form-control" id="cname" name="title" minlength="2" type="text" required="" value="{{ $product[0]->title }}">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">Buy price (required)</label>
                             <div class="col-lg-10">
-                                <input class=" form-control" id="cname" name="buy_price" minlength="2" type="number" required="">
+                                <input class=" form-control" id="cname" name="buy_price" minlength="2" type="number" required="" value="{{ $product[0]->buy_price }}">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">regular price (required)</label>
                             <div class="col-lg-10">
-                                <input class=" form-control" id="cname" name="regular_price" minlength="2" type="number" required="">
+                                <input class=" form-control" id="cname" name="regular_price" minlength="2" type="number" required="" value="{{ $product[0]->regular_price }}">
                             </div>
                         </div>
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-2"> flat price  (required)</label>
                             <div class="col-lg-10">
-                                <input class="form-control " id="cemail" type="number" name="flate_price" required="">
+                                <input class="form-control " id="cemail" type="number" name="flate_price" required="" value="{{ $product[0]->flate_price }}">
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-2">Tag</label>
                             <div class="col-lg-10">
-                                <input class="form-control " id="cemail" type="text" name="tag" required="">
+                                <input class="form-control " id="cemail" type="text" name="tag" required="" value="{{ $product[0]->tag }}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="cemail" class="control-label col-lg-2"> Product Short Description</label>
                             <div class="col-lg-10">
-                                <textarea class=editor1" name="shortdes" >Mamurjor!</textarea>
+                                <textarea class=editor1" name="shortdes" >{{ $product[0]->shortdes }}</textarea>
                             </div>
                         </div>
 
@@ -86,7 +82,7 @@
                             <label for="cemail" class="control-label col-lg-2"> Product Info  </label>
 
                             <div class="col-lg-10">
-                                <textarea class="editor2" name="product_info" >Mamurjor!</textarea>
+                                <textarea class="editor2" name="product_info" >{{ $product[0]->product_info}}</textarea>
                             </div>
                         </div>
 
@@ -94,11 +90,9 @@
                             <label for="cemail" class="control-label col-lg-2"> Product Photo  (required)</label>
 
                             <div id="input_fields" class="col-lg-10">
-                                <input type="file" class="form-control" name="images[]" required>
+                                <input type="file" class="form-control" name="images[]">
                             </div>
                             <button type="button" onclick="add()" id="addNew" class="mt-md-4 mt-0 mb-2 mb-md-0 btn btn-success">Add More Photo</button>
-
-
                         </div>
 
 
