@@ -1,18 +1,17 @@
 <?php
 
     namespace App\Http\Controllers;
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\DB;
+    
     class  FrontendController extends Controller{
 
         public function index(){
-            
-        $info = [
-            'name' => 'Rahman',
-            'cell' => '01775099773',
-        ];
-        
-            return View('welcome',compact('info'));
-            //return redirect()->action('FrontendController@contact');
-            //return redirect() -> route('user');
+            $categories = DB::select('select * from categories');
+            $dealproducts = DB::table('products')-> select('*')-> where('home_section', 'dealsday')->get();
+            $lastestproducts = DB::table('products')-> select('*')-> where('home_section', 'latestproduct')->get();
+            $pickforyou = DB::table('products')-> select('*')-> where('home_section', 'pickforyou')->get();
+            return View('welcome', [ 'categories' => $categories, 'deals' => $dealproducts, 'latestproducts' => $lastestproducts, 'pickforyours' =>  $pickforyou ]);
         }
 
         public function contact(){

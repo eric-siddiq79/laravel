@@ -35,7 +35,7 @@
 							<td><?php echo ( $sl <= 9) ? '0'.$sl : $sl; ?></td>
 							<td><?php echo $category->name; ?></td>
 							<td><?php echo $category->code; ?></td>
-							<td><a href="{{ url( 'updatecategory' ) }}/{{$category->code}}">Edit</a> | <a href="{{ url( 'deletecategory')}}/{{$category->code}}">Delete</a> </td>
+							<td><a href="{{ url( 'updatecategory' ) }}/{{$category->id}}">Edit</a> | <a href="{{ url( 'deletecategory')}}/{{$category->id}}">Delete</a> </td>
 						</tr>
                     <?php
 						}

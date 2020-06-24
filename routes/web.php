@@ -13,29 +13,20 @@
     |
     */
     
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
-
-// Route::get('admin', function(){
-//     return view('dashboard');
-// });
-    
-    
-    Route::get('frontside', 'FrontendController@index');
+    /* home */
+    Route::get('/', 'FrontendController@index');
     Route::get('frontside/contact', 'FrontendController@contact');
+    
     
     Route::POST('saveConsultation', 'UserController@saveConsultation') ->name('saveConsultation');
     Route::POST('saveuserinfo', 'UserController@saveuserinfo') ->name('saveuserinfo');
     
-// Route::get('user', 'UserController@index')->name('user');
+    /* user */
     Route::get('login', 'UserController@index')->name('loginform');
     Route::get('registration', 'UserController@registration')->name("registration");
     Route::POST('register', 'UserController@register')->name("register");
     Route::get('admin', 'DashboardController@index')->name('admin');
     Route::get('logout', 'UserController@logout')->name('logout');
-// Route::get('saveConsultation', 'UserController@saveConsultation') ->name('saveConsultation');
     
     /* user role */
     Route::get('role', 'UserController@role')->name('role');
@@ -57,7 +48,3 @@
     Route::get('updatecategory/{id}', 'CategoryController@updatecategory')->name('updatecategory');
     Route::get('deletecategory/{id}', 'CategoryController@deletecategory')->name('deletecategory');
     Route::POST('updatecategorydata', 'CategoryController@updatecategorydata')->name('updatecategorydata');
-
-
-//Route::get('user/{id}', 'UserController@show')->where('id', '[0-9]+');
-    Route::get('user/{name}', 'UserController@display')->where('name', '[a-z]+');

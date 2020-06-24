@@ -57,9 +57,21 @@
                             </div>
                         </div>
                         <div class="form-group ">
-                            <label for="cemail" class="control-label col-lg-2"> flat price  (required)</label>
+                            <label for="cemail" class="control-label col-lg-2"> Discount price  (required)</label>
                             <div class="col-lg-10">
                                 <input class="form-control " id="cemail" type="number" name="flate_price" required="" value="{{ $product[0]->flate_price }}">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Sections</label>
+                            <div class="col-lg-10">
+                                <select name="section" class=" form-control browser-default custom-select" multiple>
+                                    <option value="dealsday">DEALS OF THE DAY</option>
+                                    <option value="latestproduct">LATEST PRODUCTS</option>
+                                    <option value="pricked">PICKED FOR YOU</option>
+                                </select>
                             </div>
                         </div>
 

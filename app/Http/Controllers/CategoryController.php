@@ -16,20 +16,24 @@ Class CategoryController{
     }
 
     public function deletecategory( $id ){
-        DB::select('delete from categories where code=?', [ $id ] );
+        DB::select('delete from categories where id=?', [ $id ] );
         Session::flash('message', 'Successfully Delete');
         return redirect()->action('CategoryController@categories') ;
     }
 
     public function updatecategory( $id ){
-       $category = DB::select('select * from categories where code=?', [ $id ] );
+       $category = DB::select('select * from categories where id=?', [ $id ] );
        return view( 'updatecategory', ['category' => $category ]);
     }
 
     public function updatecategorydata( Request $request ){
         $name = $request-> input('catename');
         $code = $request->input('catecode');
-        DB::update('update categories set name = ?, code = ?', [ $name, $code ]);
+        $id = $request->input('cat_id');
+        DB::table('categories')
+            ->where('id' , $id )
+            ->update(['name' => $name, 'code' => $code]);
+        
         Session::flash('message', 'Successfully Updated Category');
         return redirect()->action('CategoryController@categories') ;
     }

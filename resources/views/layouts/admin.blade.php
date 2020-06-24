@@ -175,6 +175,7 @@
                         </ul>
                     </li>
                     <!-- inbox dropdown end -->
+
                     <!-- notification dropdown start-->
                     <li id="header_notification_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
@@ -256,8 +257,9 @@
                             <li><a href="{{ route( 'allrole' ) }}">All users</a></li>
                         </ul>
                     </li>
+
                     <li class="sub-menu">
-                        <a href="javascript:;">
+                        <a href="javascript:">
                             <i class="fa fa-desktop"></i>
                             <span>Role</span>
                         </a>

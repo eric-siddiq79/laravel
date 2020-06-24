@@ -60,8 +60,9 @@
                                 <input class=" form-control" id="cname" name="regular_price" minlength="2" type="number" required="">
                             </div>
                         </div>
+
                         <div class="form-group ">
-                            <label for="cemail" class="control-label col-lg-2"> flat price  (required)</label>
+                            <label for="cemail" class="control-label col-lg-2"> Discount Price(required)</label>
                             <div class="col-lg-10">
                                 <input class="form-control " id="cemail" type="number" name="flate_price" required="">
                             </div>
@@ -71,6 +72,17 @@
                             <label for="cemail" class="control-label col-lg-2">Tag</label>
                             <div class="col-lg-10">
                                 <input class="form-control " id="cemail" type="text" name="tag" required="">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Sections</label>
+                            <div class="col-lg-10">
+                                <select name="section" class=" form-control browser-default custom-select" multiple>
+                                    <option value="dealsday">DEALS OF THE DAY</option>
+                                    <option value="latestproduct">LATEST PRODUCTS</option>
+                                    <option value="pricked">PICKED FOR YOU</option>
+                                </select>
                             </div>
                         </div>
 
@@ -97,8 +109,6 @@
                                 <input type="file" class="form-control" name="images[]" required>
                             </div>
                             <button type="button" onclick="add()" id="addNew" class="mt-md-4 mt-0 mb-2 mb-md-0 btn btn-success">Add More Photo</button>
-
-
                         </div>
 
 

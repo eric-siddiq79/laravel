@@ -9,12 +9,13 @@
     <h4 class="mb"><i class="fa fa-angle-right"></i>Create Category</h4>
     <div class="col-md-offset-3 col-md-6">
          <h2 class="form-login-heading">
-            @if( Session::has('message')) 
-                {{Session::get('message')}} 
-            @endif 
+            @if( Session::has('message'))
+                {{Session::get('message')}}
+            @endif
          </h2>
         <form class="form" role="form" action="{{ route( 'updatecategorydata' ) }}" method="POST">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+            <input type="hidden" name="cat_id" value="{{ $category[0]->id }}">
             <div class="form-group">
                 <label class="sr-only" for="exampleInputEmail2"></label>
                 <input type="text" name="catename" class="form-control" id="exampleInputEmail2" placeholder="Enter Category Name" value="{{ $category[0]->name}}">

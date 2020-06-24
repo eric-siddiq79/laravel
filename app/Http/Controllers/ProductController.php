@@ -9,7 +9,8 @@
     class ProductController{
         public function productform(){
             $categories = DB::select('Select * from categories');
-            return view('product', ['categories' => $categories]);
+            $sections = DB::table('sections')->select('id', 'name')->get();
+            return view('product', ['categories' => $categories, 'sections' => $sections] );
         }
         
         public function saveproduct( Request $request){
@@ -56,20 +57,32 @@
         }
         
         public function updateproductdata( Request $request){
-                $catid = $request -> category_id;
-                $title = $request-> title;
-                $buyprice = $request-> buy_price;
-                $regular_price = $request-> regular_price;
-                $flate_price = $request-> flate_price;
-                $tag = $request-> tag;
-                $shortdes = $request-> shortdes;
-                $product_info = $request-> product_info;
-                $product_id = $request->product_id;
-
-                DB::table('products')
+            $catid = $request -> category_id;
+            $title = $request-> title;
+            $buyprice = $request-> buy_price;
+            $regular_price = $request-> regular_price;
+            $flate_price = $request-> flate_price;
+            $tag = $request-> tag;
+            $shortdes = $request-> shortdes;
+            $product_info = $request-> product_info;
+            $product_id = $request->product_id;
+            $section = $request->section;
+            
+            DB::table('products')
                 -> where( 'id', $product_id )
-                -> update(['title' => $title, 'regular_price' => $regular_price, 'flate_price' => $flate_price, 'shortdes' =>  $shortdes, 'product_info' => $product_info, 'cat_id' => $catid, 'buy_price' => $buyprice, 'tag' => $tag]);
-                return redirect() -> action('ProductController@allproducts');
+                -> update(['title' => $title, 'regular_price' => $regular_price, 'flate_price' => $flate_price, 'shortdes' =>  $shortdes, 'product_info' => $product_info, 'cat_id' => $catid, 'buy_price' => $buyprice, 'tag' => $tag, 'home_section' => $section]);
+            Session::flash('message', 'Succesfully Product updated');
+            return redirect() -> action('ProductController@allproducts');
         }
         
+        public function deleteproduct( $id ){
+            DB::table('products')
+                -> where('id', $id)
+                ->delete();
+            DB::table('product_image')
+                ->where('product_id', $id )
+                ->delete();
+            Session::flash('message', 'Sucessfully Deleted Product');
+            return redirect()-> action('ProductController@allproducts');
+        }
     }
