@@ -25,7 +25,7 @@
 
         public function logout() {
             session::forget('username');
-            return redirect()->action('UserController@index'); 
+            return redirect()->action('UserController@index');
         }
 
         public function role() {
@@ -58,7 +58,7 @@
             $username = $request -> input( 'username' );
             $password =  $request -> input( 'password' );
 
-            $users = DB::select( 'select * from users where username=? and password=?', [ $username, $password ] );
+            $users = DB::select( 'select * from user where username=? and password=?', [ $username, $password ] );
 
             
           
@@ -71,7 +71,7 @@
                 }
             }
             else{
-                session::flash( "message", "Sorry enable to log in, try again!"); 
+                session::flash( "message", "Sorry enable to log in, try again!");
                 return redirect() -> action('UserController@index');
              }
         }
@@ -80,7 +80,7 @@
             $username = $request -> input( 'username' );
             $password =  $request -> input( 'password' );
             session::flash('message', 'Successfully created account!');
-            DB::insert('insert into users (username, password) values(?,?)', [$username,$password] );
+            DB::insert('insert into user (username, password) values(?,?)', [$username,$password] );
             return redirect() -> route('registration');
         }
 

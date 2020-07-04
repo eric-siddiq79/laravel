@@ -288,6 +288,16 @@
                             <li><a href="{{ route( 'products' ) }}">All Products</a></li>
                         </ul>
                     </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-desktop"></i>
+                            <span>Coupons</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="{{ route( 'createcoupon' ) }}">Create Coupon</a></li>
+                            <li><a href="{{ route( 'coupons' ) }}">All Coupons</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <!-- sidebar menu end-->
             </div>

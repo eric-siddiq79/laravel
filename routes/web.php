@@ -40,6 +40,26 @@
     Route::get('deleteproduct/{id}', 'ProductController@deleteproduct')->name('deleteproduct');
     Route::POST('updateproductdata', 'ProductController@updateproductdata')->name('updateproductdata');
     
+    /* cart */
+    Route::get('cart', 'ProductController@cart')->name('cart');
+    Route::get('addtocart/{id}', 'ProductController@addToCart')->name('addToCart');
+    Route::patch('update-cart', 'ProductController@update');
+    Route::delete('remove-from-cart', 'ProductController@remove');
+    
+    
+    /* checkout */
+    Route::get('checkout', 'CheckoutController@index')->name('checkout');
+    
+    /* coupon */
+    Route::get('createcoupon', 'CouponController@index')->name('createcoupon');
+    Route::get('savecoupon', 'CouponController@savecoupon')->name('savecoupon');
+    Route::get('coupons', 'CouponController@showAllcoupon')->name('coupons');
+    Route::get('couponeditform/{id}', 'CouponController@couponeditform')->name('couponeditform');
+    Route::get('editcoupon', 'CouponController@editcoupon')->name('editcoupon');
+    Route::get('deletecoupon/{id}', 'CouponController@deletecoupon')->name('deletecoupon');
+    Route::get('checkcoupon', 'CouponController@checkcoupon');
+    
+    
     
     /* category */
     Route::get('categoryform', 'CategoryController@category')->name('categoryform');
@@ -48,3 +68,6 @@
     Route::get('updatecategory/{id}', 'CategoryController@updatecategory')->name('updatecategory');
     Route::get('deletecategory/{id}', 'CategoryController@deletecategory')->name('deletecategory');
     Route::POST('updatecategorydata', 'CategoryController@updatecategorydata')->name('updatecategorydata');
+    
+    
+    
